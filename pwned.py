@@ -1,5 +1,7 @@
 import requests
 import hashlib
+import getpass
+
 def verifier_mot_de_passe_pwned(mot_de_passe): 
     sha1_mot_de_passe = hashlib.sha1(mot_de_passe.encode('utf-8')).hexdigest().upper() 
     prefixe_sha1, suffixe_sha1 = sha1_mot_de_passe[:5], sha1_mot_de_passe[5:] 
@@ -21,9 +23,11 @@ def verifier_mot_de_passe_pwned(mot_de_passe):
         print("Une erreur s'est produite lors de la connexion au serveur:", e)
         return False 
 
-mot_de_passe_utilisateur = input("Entrez votre mot de passe : ") 
+mot_de_passe_utilisateur = getpass.getpass("Entrez votre mot de passe : ") 
 if verifier_mot_de_passe_pwned(mot_de_passe_utilisateur):
     print("Ce mot de passe a été piraté plusieurs fois. Change moi ça et VITE !!!!.") 
 
-else: 
+else:
     print("Rien ici !! Mais ne garanti en rien ta sécurité.")
+
+    
