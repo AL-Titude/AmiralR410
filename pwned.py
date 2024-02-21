@@ -29,4 +29,5 @@ if verifier_mot_de_passe_pwned(mot_de_passe_utilisateur):
 
 else:
     print("Rien ici !! Mais ne garanti en rien ta sécurité.")
+
     
